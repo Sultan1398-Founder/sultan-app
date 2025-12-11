@@ -14,6 +14,7 @@ import { VideoProvider } from "@/components/video-context"
 import { ModulesSection } from "@/components/modules-section"
 import { HowItWorks } from "@/components/how-it-works"
 import { DashboardPreview2 } from "@/components/dashboard-preview copy"
+import { WhySultanAverroes } from "@/components/why-sultan-averroes"
 
 export default function LandingPage() {
   return (
@@ -34,6 +35,9 @@ export default function LandingPage() {
         </AnimatedSection>
         <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
           <HowItWorks />
+        </AnimatedSection>
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          <WhySultanAverroes />
         </AnimatedSection>
         <AnimatedSection>
           <DashboardPreview2 />

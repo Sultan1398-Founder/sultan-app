@@ -104,5 +104,36 @@
           "description": "Ready recommendation + top 3 alternatives + risk analysis + cost/return."
         }
       ]
+    },
+    "WhySultanAverroes": {
+      "title": "Distinctive Features – Why Sultan Averroes?",
+      "subtitle": "Five key advantages that set us apart",
+      "features": [
+        {
+          "number": "1",
+          "title": "Integrating Philosophy with Computing",
+          "description": "Averroes' Rational Reasoning methodology embedded within artificial intelligence."
+        },
+        {
+          "number": "2",
+          "title": "AI Specifically for Large Organizations",
+          "description": "Designed for ministries, authorities, listed companies, and crisis centers."
+        },
+        {
+          "number": "3",
+          "title": "Future Simulation for Decision Prediction",
+          "description": "Predicting negative/positive scenarios before they occur."
+        },
+        {
+          "number": "4",
+          "title": "Saudi Global Identity",
+          "description": "Design, vision, and leadership built on Sultan's character and Ibn Rushd's legacy."
+        },
+        {
+          "number": "5",
+          "title": "Highest Levels of Governance and Cybersecurity",
+          "description": "Compliant with ISO, NCA, and government requirements."
+        }
+      ]
     }
   }
