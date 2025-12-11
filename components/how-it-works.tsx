@@ -35,7 +35,7 @@ export function HowItWorks() {
                             key={step.number}
                             className="relative bg-white/80 backdrop-blur-sm border border-gray-200 p-8 rounded-3xl overflow-hidden hover:border-blue-600/30 transition-all duration-300 group shadow-sm hover:shadow-md"
                         >
-                            <Grid size={20} />
+                            <Grid size={20} seed={index} />
                             <span className="absolute top-12 right-20 w-6 text-9xl h-6 text-blue-600 font-bold opacity-10 flex items-center justify-center ">
                                 0{step.number}
                             </span>
@@ -93,20 +93,36 @@ export function HowItWorks() {
     );
 }
 
+/**
+ * Seeded random number generator for deterministic values
+ */
+function seededRandom(seed: number): number {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+}
+
 export const Grid = ({
     pattern,
     size,
+    seed = 0,
 }: {
     pattern?: number[][];
     size?: number;
+    seed?: number;
 }) => {
-    const p = pattern ?? [
-        [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-        [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-        [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-        [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-        [Math.floor(Math.random() * 4) + 7, Math.floor(Math.random() * 6) + 1],
-    ];
+    const generatePattern = (baseSeed: number): number[][] => {
+        const patterns: number[][] = [];
+        for (let i = 0; i < 5; i++) {
+            const seed1 = baseSeed + i * 2;
+            const seed2 = baseSeed + i * 2 + 1;
+            const x = Math.floor(seededRandom(seed1) * 4) + 7;
+            const y = Math.floor(seededRandom(seed2) * 6) + 1;
+            patterns.push([x, y]);
+        }
+        return patterns;
+    };
+
+    const p = pattern ?? generatePattern(seed);
     return (
         <div className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
             <div className="absolute inset-0 bg-gradient-to-r  [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] from-blue-600/5 to-blue-600/10 opacity-100">
