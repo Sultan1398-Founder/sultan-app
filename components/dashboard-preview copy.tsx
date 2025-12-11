@@ -189,6 +189,7 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
     })
   }, [])
 
+  
   return (
     <div className={cn('w-full mx-auto px-4 md:px-6 lg:px-0', className)}>
       <div className="relative">
