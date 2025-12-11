@@ -43,7 +43,7 @@ export function CTASection() {
               />
             </g>
             <ellipse cx="694" cy="-91.5385" rx="670.109" ry="354.908" fill="url(#paint2_linear_182_1049)" />
-            <ellipse cx="694" cy="-93.0414" rx="670.109" ry="354.908" fill="url(#paint3_linear_182_1049)" />
+            <ellipse cx="694" cy="-93.0414" rx="670.109" ry="354.908" fill="#fff" />
           </g>
           <defs>
             <filter
@@ -80,9 +80,9 @@ export function CTASection() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(683.482 245.884) rotate(-3.78676) scale(469.009 248.4)"
             >
-              <stop offset="0.1294" stopColor="hsl(25, 100%, 45%)" />
-              <stop offset="0.2347" stopColor="hsl(25, 100%, 50%)" />
-              <stop offset="0.3" stopColor="hsl(25, 100%, 50%)" stopOpacity="0" />
+              <stop offset="0.1294" stopColor="hsl(210, 100%, 45%)" />
+              <stop offset="0.2347" stopColor="hsl(210, 100%, 50%)" />
+              <stop offset="0.3" stopColor="hsl(210, 100%, 50%)" stopOpacity="0" />
             </radialGradient>
             <linearGradient
               id="paint2_linear_182_1049"
@@ -111,10 +111,10 @@ export function CTASection() {
       </div>
       <div className="relative z-10 flex flex-col justify-start items-center gap-9 max-w-4xl mx-auto">
         <div className="flex flex-col justify-start items-center gap-4 text-center">
-          <h2 className="text-foreground text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] break-words max-w-[540px]">
+          <h2 className="text-gray-900 text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] break-words max-w-[540px]">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground text-sm md:text-base font-medium leading-[18.20px] md:leading-relaxed break-words max-w-2xl">
+          <p className="text-gray-600 text-sm md:text-base font-medium leading-[18.20px] md:leading-relaxed break-words max-w-2xl">
             {t("subtitle")}
           </p>
         </div>
@@ -125,7 +125,7 @@ export function CTASection() {
           aria-label={t("buttonAriaLabel")}
         >
           <Button
-            className="px-[30px] py-2 bg-secondary text-secondary-foreground text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(255,255,255,0.13)] hover:bg-secondary/90 transition-all duration-200"
+            className="px-[30px] py-2 bg-blue-600 text-white text-base font-medium leading-6 rounded-[99px] shadow-[0px_0px_0px_4px_rgba(37,99,235,0.13)] hover:bg-blue-700 transition-all duration-200"
             size="lg"
           >
             {t("button")}

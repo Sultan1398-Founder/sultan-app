@@ -39,7 +39,7 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleScroll(e, item.href)} // Add onClick handler
-                className="text-[#888888] hover:text-foreground px-4 py-2 rounded-full font-medium transition-colors"
+                className="text-[#888888] hover:text-blue-600 px-4 py-2 rounded-full font-medium transition-colors"
               >
                 {item.name}
               </Link>
@@ -48,19 +48,19 @@ export function Header() {
         </div>
         <div className="flex items-center gap-4">
           <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="hidden md:block">
-            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
+            <Button className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-full font-medium shadow-sm">
               Try for Free
             </Button>
           </Link>
           <LocaleSwitcher />
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="text-foreground">
+              <Button variant="ghost" size="icon" className="text-blue-600 rounded-full hover:bg-blue-50 hover:text-blue-700">
                 <Menu className="h-7 w-7" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="bottom" className="bg-background border-t border-border text-foreground">
+            <SheetContent side="bottom" className="bg-[#fff] border-t border-border text-foreground">
               <SheetHeader>
                 <SheetTitle className="text-left text-xl font-semibold text-foreground">Navigation</SheetTitle>
               </SheetHeader>
@@ -70,13 +70,13 @@ export function Header() {
                     key={item.name}
                     href={item.href}
                     onClick={(e) => handleScroll(e, item.href)} // Add onClick handler
-                    className="text-[#888888] hover:text-foreground justify-start text-lg py-2"
+                    className="text-[#888888] hover:text-blue-600 justify-start text-lg py-2"
                   >
                     {item.name}
                   </Link>
                 ))}
                 <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="w-full mt-4">
-                  <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
+                  <Button className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-full font-medium shadow-sm">
                     Try for Free
                   </Button>
                 </Link>

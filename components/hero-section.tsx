@@ -26,22 +26,22 @@ export function HeroSection() {
                 0deg,
                 transparent,
                 transparent 35.6px,
-                hsl(25, 100%, 60%) 35.6px,
-                hsl(25, 100%, 60%) 36px
+                hsl(210, 100%, 60%) 35.6px,
+                hsl(210, 100%, 60%) 36px
               ),
               repeating-linear-gradient(
                 90deg,
                 transparent,
                 transparent 35.6px,
-                hsl(25, 100%, 60%) 35.6px,
-                hsl(25, 100%, 60%) 36px
+                hsl(210, 100%, 60%) 35.6px,
+                hsl(210, 100%, 60%) 36px
               )
             `,
             backgroundSize: '36px 36px',
             backgroundPosition: '-20px 9px',
             opacity: 0.11,
-            maskImage: 'linear-gradient(to bottom right, transparent 0%, hsl(25, 80%, 50%) 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom right, transparent 0%, hsl(25, 80%, 50%) 100%)',
+            maskImage: 'linear-gradient(to bottom right, transparent 0%, hsl(210, 80%, 50%) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom right, transparent 0%, hsl(210, 80%, 50%) 100%)',
           }}
         />
         
@@ -58,18 +58,18 @@ export function HeroSection() {
         >
           {/* Only the 12 highlighted filled rectangles instead of 770+ */}
           <g>
-            <rect x="699.711" y="81" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.08" />
-            <rect x="195.711" y="153" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="1023.71" y="153" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="123.711" y="225" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="1095.71" y="225" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="951.711" y="297" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="231.711" y="333" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.07" />
-            <rect x="303.711" y="405" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.07" />
-            <rect x="87.7109" y="405" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="519.711" y="405" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.08" />
-            <rect x="771.711" y="405" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.09" />
-            <rect x="591.711" y="477" width="36" height="36" fill="hsl(25, 100%, 60%)" fillOpacity="0.07" />
+            <rect x="699.711" y="81" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.08" />
+            <rect x="195.711" y="153" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="1023.71" y="153" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="123.711" y="225" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="1095.71" y="225" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="951.711" y="297" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="231.711" y="333" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.07" />
+            <rect x="303.711" y="405" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.07" />
+            <rect x="87.7109" y="405" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="519.711" y="405" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.08" />
+            <rect x="771.711" y="405" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.09" />
+            <rect x="591.711" y="477" width="36" height="36" fill="hsl(210, 100%, 60%)" fillOpacity="0.07" />
           </g>
 
           {/* Gradient overlays - removed expensive SVG filters */}
@@ -104,25 +104,25 @@ export function HeroSection() {
             width="1219"
             height="809"
             rx="15.5"
-            stroke="hsl(25, 100%, 60%)"
+            stroke="hsl(210, 100%, 60%)"
             strokeOpacity="0.06"
           />
 
           <defs>
             <linearGradient id="gradient1" x1="1118.08" y1="-149.03" x2="1118.08" y2="1248.85" gradientUnits="userSpaceOnUse">
-              <stop stopColor="hsl(25, 100%, 70%)" />
-              <stop offset="0.578125" stopColor="hsl(25, 100%, 65%)" />
-              <stop offset="1" stopColor="hsl(25, 100%, 50%)" />
+              <stop stopColor="hsl(210, 100%, 70%)" />
+              <stop offset="0.578125" stopColor="hsl(210, 100%, 65%)" />
+              <stop offset="1" stopColor="hsl(210, 100%, 50%)" />
             </linearGradient>
             <linearGradient id="gradient2" x1="1054.08" y1="-213.03" x2="1054.08" y2="1184.85" gradientUnits="userSpaceOnUse">
-              <stop stopColor="hsl(25, 100%, 70%)" />
-              <stop offset="0.578125" stopColor="hsl(25, 100%, 65%)" />
-              <stop offset="1" stopColor="hsl(25, 100%, 50%)" />
+              <stop stopColor="hsl(210, 100%, 70%)" />
+              <stop offset="0.578125" stopColor="hsl(210, 100%, 65%)" />
+              <stop offset="1" stopColor="hsl(210, 100%, 50%)" />
             </linearGradient>
             <linearGradient id="gradient3" x1="1238.08" y1="-293.03" x2="1238.08" y2="1104.85" gradientUnits="userSpaceOnUse">
-              <stop stopColor="hsl(25, 100%, 70%)" />
-              <stop offset="0.578125" stopColor="hsl(25, 100%, 65%)" />
-              <stop offset="1" stopColor="hsl(25, 100%, 50%)" />
+              <stop stopColor="hsl(210, 100%, 70%)" />
+              <stop offset="0.578125" stopColor="hsl(210, 100%, 65%)" />
+              <stop offset="1" stopColor="hsl(210, 100%, 50%)" />
             </linearGradient>
             <radialGradient
               id="gradient4"
@@ -132,9 +132,9 @@ export function HeroSection() {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(989.13 557.24) rotate(47.9516) scale(466.313 471.424)"
             >
-              <stop stopColor="hsl(25, 100%, 70%)" />
-              <stop offset="0.157789" stopColor="hsl(25, 100%, 65%)" />
-              <stop offset="1" stopColor="hsl(25, 100%, 50%)" />
+              <stop stopColor="hsl(210, 100%, 70%)" />
+              <stop offset="0.157789" stopColor="hsl(210, 100%, 65%)" />
+              <stop offset="1" stopColor="hsl(210, 100%, 50%)" />
             </radialGradient>
           </defs>
         </svg>
@@ -156,17 +156,17 @@ export function HeroSection() {
 
       <div className="relative z-10 flex flex-col sm:flex-row gap-4 items-center justify-center">
         <Link href="" rel="noopener noreferrer">
-          <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
+          <Button className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
             {t("startButton")}
           </Button>
         </Link>
         <Button
           variant="outline"
           size={"icon"}
-          className="rounded-full shadow-lg ring-1 ring-white/10"
+          className="rounded-full shadow-lg ring-1 ring-blue-600/30 border-blue-600/50 hover:bg-blue-600/10 hover:border-blue-600"
           aria-label={t("watchVideoButton")}
         >
-          <Play className="h-5 w-5" />
+          <Play className="h-5 w-5 text-blue-600" />
           <span className="sr-only">{t("watchVideoButton")}</span>
         </Button>
       </div>

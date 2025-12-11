@@ -101,7 +101,7 @@ export function ModulesSection() {
                     return (
                         <motion.div
                             key={i}
-                            className="absolute w-1 h-1 rounded-full bg-primary/30"
+                            className="absolute w-1 h-1 rounded-full bg-gray-900/30"
                             initial={{
                                 x: random1 * containerWidth,
                                 y: random2 * 800,
@@ -128,7 +128,7 @@ export function ModulesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-6xl font-bold text-foreground mb-4 tracking-tight"
+                    className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 tracking-tight"
                 >
                     {t("title")}
                 </motion.h2>
@@ -137,7 +137,7 @@ export function ModulesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg text-muted-foreground max-w-2xl mx-auto"
+                    className="text-lg text-gray-600 max-w-2xl mx-auto"
                     dir={isRtl ? "rtl" : "ltr"}
                 >
                     {t("subtitle")}
@@ -165,7 +165,7 @@ export function ModulesSection() {
                                 x2={`calc(50% + ${pos.x}px)`}
                                 y2={`calc(50% + ${pos.y}px)`}
                                 stroke="url(#lineGradient)"
-                                strokeWidth={activeModule === i ? 2 : 1}
+                                strokeWidth={activeModule === i ? 3 : 2}
                                 initial={{ pathLength: 0 }}
                                 animate={{ pathLength: 1 }}
                                 transition={{ duration: 1, delay: i * 0.1 }}
@@ -178,7 +178,7 @@ export function ModulesSection() {
                             r="250"
                             fill="none"
                             stroke={modulesWithMetadata[activeModule].color}
-                            strokeWidth="1"
+                            strokeWidth="2"
                             strokeOpacity="0.2"
                             strokeDasharray="8 8"
                             animate={{ rotate: 360 }}
@@ -199,7 +199,7 @@ export function ModulesSection() {
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.8, opacity: 0 }}
-                            className="w-44 h-44 rounded-full border-2 flex items-center justify-center backdrop-blur-xl"
+                            className="w-44 h-44 rounded-full border-[3px] flex items-center justify-center backdrop-blur-xl"
                             style={{
                                 borderColor: modulesWithMetadata[activeModule].color,
                                 background: `linear-gradient(135deg, ${modulesWithMetadata[activeModule].color}10, transparent)`,
@@ -213,7 +213,7 @@ export function ModulesSection() {
 
                         {/* Pulsing Ring */}
                         <motion.div
-                            className="absolute inset-0 rounded-full border"
+                            className="absolute inset-0 rounded-full border-2"
                             style={{ borderColor: modulesWithMetadata[activeModule].color }}
                             animate={{
                                 scale: [1, 1.5],
@@ -257,7 +257,7 @@ export function ModulesSection() {
                                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                             >
                                 <Tooltip
-                                    containerClassName="text-neutral-600 dark:text-neutral-400"
+                                    containerClassName="text-gray-600"
                                     content={module.description}
                                 >
                                     {/* Hexagon Shape */}
@@ -273,28 +273,28 @@ export function ModulesSection() {
                                                 <linearGradient id={`grad-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
                                                     <stop
                                                         offset="0%"
-                                                        stopColor={isActive ? module.color : "#ffffff"}
-                                                        stopOpacity={isActive ? 0.3 : 0.05}
-                                                    />
-                                                    <stop
-                                                        offset="100%"
-                                                        stopColor={isActive ? module.color : "#ffffff"}
-                                                        stopOpacity={isActive ? 0.1 : 0.02}
+                                                stopColor={isActive ? module.color : "#e5e7eb"}
+                                                stopOpacity={isActive ? 0.3 : 0.1}
+                                            />
+                                            <stop
+                                                offset="100%"
+                                                stopColor={isActive ? module.color : "#f3f4f6"}
+                                                stopOpacity={isActive ? 0.1 : 0.05}
                                                     />
                                                 </linearGradient>
                                             </defs>
                                             <polygon
                                                 points="50,2 95,25 95,75 50,98 5,75 5,25"
                                                 fill={`url(#grad-${index})`}
-                                                stroke={isActive ? module.color : "rgba(255,255,255,0.2)"}
-                                                strokeWidth={isActive ? 2 : 1}
+                                                stroke={isActive ? module.color : "rgba(0, 0, 0, 0.2)"}
+                                                strokeWidth={isActive ? 3 : 2}
                                             />
                                         </svg>
 
                                         {/* Icon */}
                                         <Icon
                                             className={`w-8 h-8 relative z-10 transition-colors duration-300`}
-                                            style={{ color: isActive ? module.color : "rgba(255,255,255,0.5)" }}
+                                            style={{ color: isActive ? module.color : "rgba(0, 0, 0, 0.4)" }}
                                         />
 
                                         {/* Active Glow */}
@@ -321,7 +321,7 @@ export function ModulesSection() {
                                     >
                                         <span
                                             className="text-sm font-medium"
-                                            style={{ color: isActive ? module.color : "rgba(255,255,255,0.6)" }}
+                                            style={{ color: isActive ? module.color : "#000" }}
                                         >
                                             {module.title}
                                         </span>
@@ -380,9 +380,9 @@ export function ModulesSection() {
                             >
 
                                 <div
-                                    className="p-6 rounded-3xl backdrop-blur-xl border h-[380px] flex flex-col"
+                                    className="p-6 rounded-3xl backdrop-blur-xl border-2 h-[380px] flex flex-col bg-white/90"
                                     style={{
-                                        background: `linear-gradient(135deg, ${module.color}15, ${module.color}05)`,
+                                        background: `linear-gradient(135deg, ${module.color}15, white)`,
                                         borderColor: `${module.color}40`,
                                     }}
                                 >
@@ -400,11 +400,11 @@ export function ModulesSection() {
                                     </div>
 
                                     {/* Content */}
-                                    <h3 className="text-xl font-bold text-foreground mb-2">{module.title}</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{module.title}</h3>
                                     <p className="text-base mb-4" style={{ color: module.color }} dir={isRtl ? "rtl" : "ltr"}>
                                         {module.subtitle}
                                     </p>
-                                    <p className="text-sm text-muted-foreground leading-relaxed flex-1" dir={isRtl ? "rtl" : "ltr"}>
+                                    <p className="text-sm text-gray-600 leading-relaxed flex-1" dir={isRtl ? "rtl" : "ltr"}>
                                         {module.description}
                                     </p>
 
@@ -420,7 +420,7 @@ export function ModulesSection() {
                                                     className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeModule ? "w-6" : ""
                                                         }`}
                                                     style={{
-                                                        background: i === activeModule ? module.color : "rgba(255,255,255,0.2)",
+                                                        background: i === activeModule ? module.color : "rgba(0, 0, 0, 0.2)",
                                                     }}
                                                 />
                                             ))}
@@ -436,17 +436,17 @@ export function ModulesSection() {
                 <div className="flex justify-center gap-4 mt-4">
                     <button
                         onClick={() => setActiveModule((prev) => (prev - 1 + modulesWithMetadata.length) % modulesWithMetadata.length)}
-                        className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                        className="p-4 rounded-full bg-gray-900/10 border-2 border-gray-900/20 hover:bg-gray-900/20 transition-colors"
                     >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                     <button
                         onClick={() => setActiveModule((prev) => (prev + 1) % modulesWithMetadata.length)}
-                        className="p-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                        className="p-4 rounded-full bg-gray-900/10 border-2 border-gray-900/20 hover:bg-gray-900/20 transition-colors"
                     >
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>

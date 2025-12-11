@@ -21,10 +21,10 @@ export function HowItWorks() {
         <div className="py-20 lg:py-40 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                         {t("title")}
                     </h2>
-                    <p className="text-lg md:text-xl text-muted-foreground">
+                    <p className="text-lg md:text-xl text-gray-600">
                         {t("subtitle")}
                     </p>
                 </div>
@@ -33,19 +33,19 @@ export function HowItWorks() {
                     {steps.map((step, index) => (
                         <div
                             key={step.number}
-                            className="relative bg-card/50 backdrop-blur-sm border border-border p-8 rounded-3xl overflow-hidden hover:border-[hsl(25,100%,50%)]/30 transition-all duration-300 group"
+                            className="relative bg-white/80 backdrop-blur-sm border border-gray-200 p-8 rounded-3xl overflow-hidden hover:border-blue-600/30 transition-all duration-300 group shadow-sm hover:shadow-md"
                         >
                             <Grid size={20} />
-                            <span className="absolute top-12 right-20 w-6 text-9xl h-6 text-[hsl(25,100%,50%)] font-bold opacity-10 flex items-center justify-center ">
+                            <span className="absolute top-12 right-20 w-6 text-9xl h-6 text-blue-600 font-bold opacity-10 flex items-center justify-center ">
                                 0{step.number}
                             </span>
                          
-                            {/* Decorative orange glow on hover */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-[hsl(25,100%,50%)]/0 via-[hsl(25,100%,50%)]/0 to-[hsl(25,100%,50%)]/0 group-hover:from-[hsl(25,100%,50%)]/10 group-hover:via-[hsl(25,100%,50%)]/5 group-hover:to-[hsl(25,100%,50%)]/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+                            {/* Decorative blue glow on hover */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
 
                             {/* Step Number with Icon */}
                             <div className="relative z-20 mb-6">
-                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[hsl(25,100%,50%)]/10 border border-[hsl(25,100%,50%)]/20 text-[hsl(25,100%,60%)] mb-4 group-hover:bg-[hsl(25,100%,50%)]/15 group-hover:border-[hsl(25,100%,50%)]/30 group-hover:scale-110 transition-all duration-300 relative">
+                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-600 mb-4 group-hover:bg-blue-600/15 group-hover:border-blue-600/30 group-hover:scale-110 transition-all duration-300 relative">
                                     {React.createElement(stepIcons[index], {
                                         className: "w-7 h-7",
                                         strokeWidth: 2,
@@ -55,13 +55,13 @@ export function HowItWorks() {
                             </div>
 
                             {/* Step Title */}
-                            <h3 className="text-xl md:text-2xl font-bold text-foreground relative z-20 mb-4">
+                            <h3 className="text-xl md:text-2xl font-bold text-gray-900 relative z-20 mb-4">
                                 {step.title}
                             </h3>
 
                             {/* Step Description */}
                             {step.description && (
-                                <p className="text-muted-foreground text-base font-normal relative z-20 leading-relaxed">
+                                <p className="text-gray-600 text-base font-normal relative z-20 leading-relaxed">
                                     {step.description}
                                 </p>
                             )}
@@ -72,9 +72,9 @@ export function HowItWorks() {
                                     {step.features.map((feature, featureIndex) => (
                                         <li
                                             key={featureIndex}
-                                            className="text-muted-foreground text-sm md:text-base flex items-start"
+                                            className="text-gray-600 text-sm md:text-base flex items-start"
                                         >
-                                            <span className="text-[hsl(25,100%,60%)] mr-2 mt-1 font-bold">•</span>
+                                            <span className="text-blue-600 mr-2 mt-1 font-bold">•</span>
                                             <span>{feature}</span>
                                         </li>
                                     ))}
@@ -83,7 +83,7 @@ export function HowItWorks() {
 
                             {/* Connector Line (for desktop) */}
                             {index < steps.length - 1 && (
-                                <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-12 w-6 lg:w-12 h-0.5 bg-gradient-to-r from-[hsl(25,100%,50%)]/50 to-transparent z-10" />
+                                <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-12 w-6 lg:w-12 h-0.5 bg-gradient-to-r from-blue-600/50 to-transparent z-10" />
                             )}
                         </div>
                     ))}
@@ -109,14 +109,14 @@ export const Grid = ({
     ];
     return (
         <div className="pointer-events-none absolute left-1/2 top-0  -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
-            <div className="absolute inset-0 bg-gradient-to-r  [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] from-[hsl(25,100%,50%)]/5 to-[hsl(25,100%,50%)]/10 opacity-100">
+            <div className="absolute inset-0 bg-gradient-to-r  [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] from-blue-600/5 to-blue-600/10 opacity-100">
                 <GridPattern
                     width={size ?? 20}
                     height={size ?? 20}
                     x="-12"
                     y="4"
                     squares={p}
-                    className="absolute inset-0 h-full w-full mix-blend-overlay fill-[hsl(25,100%,50%)]/5 stroke-[hsl(25,100%,50%)]/10"
+                    className="absolute inset-0 h-full w-full mix-blend-overlay fill-blue-600/5 stroke-blue-600/10"
                 />
             </div>
         </div>

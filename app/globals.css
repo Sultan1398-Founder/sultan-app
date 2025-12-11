@@ -8,19 +8,19 @@
     --font-latin: system-ui, -apple-system, "Segoe UI", sans-serif;
     --font-arabic: 'Cairo', sans-serif;
     /* Themeable Colors - Restored to Original Vibe */
-    --background: 210 11% 7%; /* #0f1211 */
-    --foreground: 160 14% 93%; /* #e7eceb */
+    --background: #fff; /* #0f1211 */
+    --foreground: #000; /* #e7eceb */
 
     --muted: 240 2% 16%; /* #27272a */
-    --muted-foreground: 160 14% 93% / 0.7; /* rgba(231, 236, 235, 0.7) */
-    --muted-foreground-light: 160 14% 93% / 0.5; /* rgba(231, 236, 235, 0.5) */
-    --muted-foreground-dark: 160 14% 93% / 0.6; /* rgba(231, 236, 235, 0.6) */
+    --muted-foreground: #000 / 0.7; /* rgba(231, 236, 235, 0.7) */
+    --muted-foreground-light: #000 / 0.5; /* rgba(231, 236, 235, 0.5) */
+    --muted-foreground-dark: #000 / 0.6; /* rgba(231, 236, 235, 0.6) */
 
     --card: 220 17% 98% / 0.01;
-    --card-foreground: 160 14% 93%;
+    --card-foreground: #000;
 
-    --popover: 210 11% 7%;
-    --popover-foreground: 160 14% 93%;
+    --popover: #fff;
+    --popover-foreground: #000;
 
     /* Primary Accent Colors */
     --primary: 165 96% 71%; /* #78fcd6 */
@@ -29,7 +29,7 @@
     --primary-light: 160 48% 87%; /* New variable for lighter teal/green shades */
 
     /* Secondary Accent Colors (for buttons, etc.) */
-    --secondary: 160 14% 93%; /* #e7eceb */
+    --secondary: #000; /* #e7eceb */
     --secondary-foreground: 165 14% 8%; /* #141a18 */
 
     --accent: 240 2% 25%; /* #3f3f42 */
