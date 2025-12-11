@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { useLocale } from 'next-intl'
 
 type CarouselItem = {
   id: string
@@ -96,6 +97,9 @@ const defaultItems: CarouselItem[] = [
 ]
 
 export function DashboardPreview2({ items = defaultItems, className }: DashboardPreviewProps) {
+  const locale = useLocale()
+  const isRtl = locale === 'ar'
+  
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -106,6 +110,7 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
           slidesToScroll: 1,
         },
       },
+      direction: isRtl ? 'rtl' : 'ltr',
     },
     [],
   )
@@ -194,11 +199,11 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
     <div className={cn('w-full mx-auto px-4 md:px-6 lg:px-0', className)}>
       <div className="relative">
         <div ref={emblaRef} className="overflow-hidden">
-          <div className="flex -ml-4">
+          <div className={cn('flex', isRtl ? '-mr-4' : '-ml-4')}>
             {items.map((item, index) => (
               <div
                 key={item.id}
-                className="min-w-0 shrink-0 grow-0 basis-full pl-4 md:basis-[90%]"
+                className={cn('min-w-0 shrink-0 grow-0 basis-full md:basis-[90%]', isRtl ? 'pr-4' : 'pl-4')}
               >
                 <motion.div
                   initial={{ scale: 0.9 }}
@@ -213,18 +218,18 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
 
 
 
-                    <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-14 z-50 flex-1 flex flex-col">
+                    <div className={cn('absolute top-4 sm:top-6 md:top-8 z-50 flex-1 flex flex-col', isRtl ? 'right-4 sm:right-6 md:right-14' : 'left-4 sm:left-6 md:left-14')}>
                       <motion.div
-                        initial={{ x: -20 }}
+                        initial={{ x: isRtl ? 20 : -20 }}
                         animate={{
-                          x: selectedIndex === index ? 0 : -20,
+                          x: selectedIndex === index ? 0 : (isRtl ? 20 : -20),
                         }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6">
+                        <h2 className={cn('text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6', isRtl && 'text-right')}>
                           {item.title}
                         </h2>
-                        <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-md">
+                        <p className={cn('text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-md', isRtl && 'text-right')}>
                           {item.description}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -254,12 +259,20 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
                               {item.secondaryButton.href ? (
                                 <a href={item.secondaryButton.href} className="flex items-center gap-2">
                                   {item.secondaryButton.text}
-                                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                                  {isRtl ? (
+                                    <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
+                                  ) : (
+                                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                                  )}
                                 </a>
                               ) : (
                                 <span className="flex items-center gap-2">
                                   {item.secondaryButton.text}
-                                  <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                                  {isRtl ? (
+                                    <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
+                                  ) : (
+                                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                                  )}
                                 </span>
                               )}
                             </Button>
@@ -288,7 +301,7 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
                               playsInline
                               className="w-full h-full object-cover rounded-xl"
                             />
-                            <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 z-[60] flex gap-2 pointer-events-auto">
+                            <div className={cn('absolute bottom-3 sm:bottom-4 md:bottom-6 z-[60] flex gap-2 pointer-events-auto', isRtl ? 'left-3 sm:left-4 md:left-6' : 'right-3 sm:right-4 md:right-6')}>
                               <Button
                                 variant="ghost"
                                 size="icon"
@@ -339,7 +352,7 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
             ))}
           </div>
         </div>
-        <div className="flex justify-end mt-4 sm:mt-6 mr-4 sm:mr-8 md:mr-12 lg:mr-[75px]">
+        <div className={cn('flex mt-4 sm:mt-6', isRtl ? 'justify-start mr-4 sm:mr-8 md:mr-12 lg:mr-[75px]' : 'justify-end mr-4 sm:mr-8 md:mr-12 lg:mr-[75px]')}>
           <div className="flex items-center gap-2 sm:gap-4 bg-blue-600 p-1.5 sm:p-2 rounded-full w-fit">
             <Button
               variant="ghost"
@@ -348,7 +361,11 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
               disabled={!canScrollPrev}
               className="rounded-full disabled:opacity-30 hover:bg-white group h-8 w-8 sm:h-10 sm:w-10"
             >
-              <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white group-hover:text-blue-600" />
+              {isRtl ? (
+                <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white group-hover:text-blue-600" />
+              ) : (
+                <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white group-hover:text-blue-600" />
+              )}
               <span className="sr-only">Previous slide</span>
             </Button>
 
@@ -359,7 +376,11 @@ export function DashboardPreview2({ items = defaultItems, className }: Dashboard
               disabled={!canScrollNext}
               className="rounded-full disabled:opacity-30 hover:bg-white group h-8 w-8 sm:h-10 sm:w-10"
             >
-              <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white group-hover:text-blue-600" />
+              {isRtl ? (
+                <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white group-hover:text-blue-600" />
+              ) : (
+                <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 text-white group-hover:text-blue-600" />
+              )}
               <span className="sr-only">Next slide</span>
             </Button>
           </div>
