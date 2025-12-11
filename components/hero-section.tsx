@@ -13,7 +13,7 @@ export function HeroSection() {
   return (
     <section
       className="border flex flex-col items-center text-center relative mx-auto md:rounded-2xl rounded-b-2xl overflow-hidden md:my-6 py-0 px-4
-         w-full h-[400px] md:h-[600px] lg:h-[810px] md:px-0"
+         w-full h-[600px] md:h-[600px] lg:h-[810px] md:px-0"
     >
       {/* Optimized Background - CSS for grid, minimal SVG for overlays */}
       <div className="absolute inset-0 z-0">
@@ -145,7 +145,7 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[1200px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
+      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[1200px] mt-32 md:mt-[120px] lg:mt-[160px] px-4">
         <h1 className="text-foreground text-2xl md:text-4xl lg:text-6xl font-semibold leading-tight">
           {t("title")}
         </h1>

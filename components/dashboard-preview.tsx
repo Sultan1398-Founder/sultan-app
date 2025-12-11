@@ -12,7 +12,7 @@ export function DashboardPreview() {
           loop
           muted
           playsInline
-          className="w-full h-[550px] object-fill rounded-xl shadow-lg"
+          className="w-full md:h-[550px] h-[300px] object-fill rounded-xl shadow-lg"
         />
       </div>
     </div>
