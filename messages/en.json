@@ -1,0 +1,82 @@
+{
+    "HomePage": {
+      "title": "Hello world!"
+    },
+    "LocaleSwitcher": {
+      "en": "English",
+      "ar": "العربية"
+    },
+    "HeroSection": {
+      "title": "The new generation of decision-making systems for ministries and large organizations",
+      "subtitle": "AI based on Ibn Rushd's wisdom and contemporary vision in building intelligent leadership systems based on logic, deep analysis, and data.",
+      "startButton": "Start Experience / Demo",
+      "watchVideoButton": "Watch the introductory video: Board of Directors video (about 10 minutes)"
+    },
+    "SocialProof": {
+      "title": "Our strategic partners shaping the future of decision-making",
+      "logoAlt": "Partner logo {index}"
+    },
+    "LeadershipSection": {
+      "title": "System Leadership",
+      "subtitle": "The visionary minds architecting the future of intelligent systems",
+      "leaders": [
+        {
+          "name": "Dr. Sultan Saud Al-Sajjan",
+          "role": "Chief Executive Officer"
+        },
+        {
+          "name": "Eng. Hussein Ahmed Kattab",
+          "role": "Vice President of Technology"
+        },
+        {
+          "name": "Eng. Ahmed Hussein Kattab",
+          "role": "Development Manager"
+        },
+        {
+          "name": "Mr. Ammar Abdullah Al-Shuaibi",
+          "role": "Operations Manager"
+        }
+      ]
+    },
+    "CTASection": {
+      "title": "Contact Us Now",
+      "subtitle": "Ready to support you in building advanced AI solutions. Click to contact via WhatsApp and we'll follow up with you immediately.",
+      "button": "Contact via WhatsApp",
+      "buttonAriaLabel": "Contact via WhatsApp",
+      "whatsappMessage": "Hello Pointer team, I would like to get in touch about AI solutions."
+    },
+    "FooterSection": {
+      "description": "Sultan Averroes is an innovative AI platform that supports decision-making for ministries and large organizations through advanced analytics combining Averroes' rational methodology with modern Decision Intelligence technologies."
+    },
+    "ModulesSection": {
+      "title": "Core Modules",
+      "subtitle": "Six integrated modules forming a comprehensive AI system for large organizations",
+      "tooltip": "AWS markets itself as the \"world's most comprehensive and broadly adopted cloud platform\" offering over 200 fully featured services globally.",
+      "modules": [
+        {
+          "title": "Decision Director",
+          "description": "An intelligent system that guides decision-makers towards optimal choices based on comprehensive analysis of data and potential scenarios"
+        },
+        {
+          "title": "Digital Command Room",
+          "description": "An integrated control center providing comprehensive real-time operational visibility with advanced control and monitoring capabilities"
+        },
+        {
+          "title": "Organization's Intelligence",
+          "description": "An AI engine that transforms organizational data into actionable insights to enhance institutional performance"
+        },
+        {
+          "title": "Media & Public Perception",
+          "description": "An advanced system for monitoring and analyzing media trends and public opinion with crisis prediction capabilities"
+        },
+        {
+          "title": "Risk Management Suite",
+          "description": "An integrated package for identifying, assessing, and monitoring organizational risks with automated response plans"
+        },
+        {
+          "title": "Stakeholder Intelligence",
+          "description": "An advanced analytical system for understanding and managing stakeholder relationships and enhancing strategic communication"
+        }
+      ]
+    }
+  }
