@@ -4,6 +4,7 @@ import './globals.css'
 import { NextIntlClientProvider } from "next-intl";
 import { cookies } from "next/headers";
 import { getMessages } from "next-intl/server";
+import { LocaleProvider } from '@/context/locale-context';
 
 
 export const metadata: Metadata = {
@@ -32,9 +33,10 @@ export default async function RootLayout({
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} suppressHydrationWarning>
       <body className={``}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
-          <Analytics />
-
+          <LocaleProvider>
+            {children}
+            <Analytics />
+          </LocaleProvider>
         </NextIntlClientProvider>
 
       </body>

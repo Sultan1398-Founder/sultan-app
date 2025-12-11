@@ -2,18 +2,21 @@
 
 import { Twitter, Github, Linkedin } from "lucide-react"
 import Image from "next/image"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
+import { cn } from "@/lib/utils"
 
 export function FooterSection() {
   const t = useTranslations("FooterSection")
+  const locale = useLocale()
+  const isRtl = locale === "ar"
   return (
     <footer className="w-full max-w-[1320px] mx-auto px-5 flex flex-col md:flex-row justify-between items-start gap-8 md:gap-0 py-10 md:py-[70px]">
       {/* Left Section: Logo, Description, Social Links */}
       <div className="flex flex-col justify-start items-start gap-8 p-4 md:p-8 -mt-6">
-        <div className="flex gap-3 -ml-6">
+        <div className={cn("flex gap-3",isRtl ? "-mr-6":"-ml-6")}>
           <Image src="/logo-sultan.png" alt="Pointer Logo" width={140} height={140} />
         </div>
-        <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left -mt-10 max-w-[500px]">
+        <p className="text-foreground/90 text-sm font-medium leading-[18px] -mt-10 max-w-[500px]">
           {t("description")}
         </p>
         <div className="flex justify-start items-start gap-3">
