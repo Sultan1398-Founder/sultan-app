@@ -2,10 +2,15 @@
 
 import Image from "next/image"
 import { useTranslations } from "next-intl"
+import { motion, useInView } from "framer-motion"
+import { useRef } from "react"
 
 export function LeadershipSection() {
     const t = useTranslations("LeadershipSection")
     const leaders = t.raw("leaders") as Array<{ name: string; role: string }>
+    const containerRef = useRef(null)
+    const isInView = useInView(containerRef, { once: true, amount: 0.2 })
+    
     return (
         <section className="relative w-full px-5 py-20 md:py-32  flex justify-center items-center ">
             {/* Decorative Background Elements */}
@@ -14,18 +19,26 @@ export function LeadershipSection() {
                 <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[hsl(25,100%,50%)]/3 rounded-full blur-[100px]" />
             </div>
 
-            <div className="relative z-10 w-full flex flex-col gap-16 md:gap-24">
+            <div ref={containerRef} className="relative z-10 w-full flex flex-col gap-16 md:gap-24">
                 {/* Section Header - Large Statement Typography */}
                 <div className="text-center space-y-6 px-4">
-
-
-                    <h2 className="text-center text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight md:leading-tight lg:leading-[40px]">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className="text-center text-foreground text-3xl md:text-4xl lg:text-[40px] font-semibold leading-tight md:leading-tight lg:leading-[40px]"
+                    >
                         {t("title")}
-                    </h2>
+                    </motion.h2>
 
-                    <p className="self-stretch text-center text-muted-foreground text-sm md:text-sm lg:text-base font-medium leading-[18.20px] md:leading-relaxed lg:leading-relaxed">
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                        className="self-stretch text-center text-muted-foreground text-sm md:text-sm lg:text-base font-medium leading-[18.20px] md:leading-relaxed lg:leading-relaxed"
+                    >
                         {t("subtitle")}
-                    </p>
+                    </motion.p>
                 </div>
 
               
@@ -33,7 +46,17 @@ export function LeadershipSection() {
                 {/* Leadership Grid - Premium Card Design */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                     {leaders.map((leader, index) => (
-                        <div key={index} className="group relative">
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 40, scale: 0.95 }}
+                            transition={{
+                                duration: 0.6,
+                                delay: 0.2 + index * 0.15,
+                                ease: [0.22, 1, 0.36, 1]
+                            }}
+                            className="group relative"
+                        >
                             {/* Card Container */}
                             <div className="relative h-full overflow-hidden rounded-3xl bg-accent/40 backdrop-blur-md transition-all duration-500 hover:border-[hsl(25,100%,50%)]/50 hover:bg-accent/60">
                                 {/* Image Section */}
@@ -50,16 +73,16 @@ export function LeadershipSection() {
                                     {/* Accent Border on Hover */}
                                     <div className="absolute inset-0 border-2 border-[hsl(25,100%,50%)]/0 group-hover:border-[hsl(25,100%,50%)]/30 rounded-3xl transition-all duration-500" />
                                 </div>
-                                {/* <div className="inline-flex absolute top-4 left-4 items-center gap-2 px-3 py-1.5 rounded-full bg-background backdrop-blur-sm border border-primary/30">
+                                <div className="inline-flex absolute top-4 left-4 items-center gap-2 px-3 py-1.5 rounded-full bg-background backdrop-blur-sm border border-primary/30">
                                     <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                                    <span className="text-xs font-medium tracking-wide" dir="rtl">
+                                    <span className="text-xs font-medium tracking-wide">
                                         {leader.role}
                                     </span>
-                                </div> */}
+                                </div>
                                 {/* Content Overlay */}
                                 <div className="absolute inset-x-0 bottom-0 p-6 space-y-3">
                                     {/* Title - Name */}
-                                    <p className="text-xl text-muted-foreground font-light tracking-wide uppercase">{leader.name}</p>
+                                    <p className="text-lg text-muted-foreground font-light tracking-wide uppercase">{leader.name}</p>
 
                                     {/* Decorative Line */}
                                     <div className="pt-2">
@@ -73,7 +96,7 @@ export function LeadershipSection() {
 
                             {/* Glow Effect on Hover */}
                             <div className="absolute -inset-1 bg-gradient-to-r from-[hsl(25,100%,50%)]/20 via-[hsl(25,100%,50%)]/10 to-[hsl(25,100%,50%)]/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
