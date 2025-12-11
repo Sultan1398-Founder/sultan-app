@@ -338,28 +338,45 @@ export function ModulesSection() {
 
             {/* Mobile: 3D Card Stack */}
             <div className="lg:hidden relative z-10">
-                <div className="relative h-[500px] flex items-center justify-center">
+                <div className="relative h-[500px] flex items-center justify-center overflow-visible">
                     {modulesWithMetadata.map((module, index) => {
                         const Icon = module.icon
                         const isActive = activeModule === index
                         const offset = index - activeModule
+                        const absOffset = Math.abs(offset)
+                        
+                        // Calculate z-index: active card on top, adjacent cards visible
+                        const zIndexValue = modulesWithMetadata.length - absOffset
+                        
+                        // Show cards within range (current, prev, next, and one more on each side)
+                        const isVisible = absOffset <= 2
+                        
+                        // Better positioning: cards spread horizontally with slight vertical offset
+                        const xOffset = offset * 40 // Increased horizontal spacing
+                        const yOffset = absOffset * 15 // Slight vertical offset for depth
+                        
+                        // Opacity: keep adjacent cards visible
+                        const opacityValue = isVisible 
+                            ? (isActive ? 1 : 0.6 - absOffset * 0.15)
+                            : 0
 
                         return (
                             <motion.div
                                 key={index}
-                                className="absolute w-[85%] max-w-[320px]"
+                                className="absolute w-[85%] max-w-[320px] cursor-pointer"
                                 initial={false}
                                 animate={{
-                                    x: offset * 20,
-                                    y: Math.abs(offset) * 10,
-                                    scale: isActive ? 1 : 0.9 - Math.abs(offset) * 0.05,
-                                    zIndex: modulesWithMetadata.length - Math.abs(offset),
-                                    opacity: Math.abs(offset) > 2 ? 0 : 1 - Math.abs(offset) * 0.2,
-                                    rotateY: offset * -5,
+                                    x: xOffset,
+                                    y: yOffset,
+                                    scale: isActive ? 1 : 0.85 - absOffset * 0.05,
+                                    opacity: 1,
                                 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                 onClick={() => setActiveModule(index)}
-                                style={{ perspective: 1000 }}
+                                style={{ 
+                                    zIndex: zIndexValue,
+                                    pointerEvents: isVisible ? "auto" : "none"
+                                }}
                             >
 
                                 <div
@@ -395,8 +412,7 @@ export function ModulesSection() {
                                     {isActive && (
                                         <motion.div
                                             className="mt-4 flex justify-center gap-2"
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
+                                            
                                         >
                                             {modulesWithMetadata.map((_, i) => (
                                                 <div
