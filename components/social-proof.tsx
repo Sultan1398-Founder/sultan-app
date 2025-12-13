@@ -18,7 +18,7 @@ export function SocialProof() {
       <h2 className="mx-4 mb-12 text-center text-2xl font-medium md:text-4xl">
         {t("title")}
       </h2>
-      <div className="flex translate-y-[50%] rotate-[7deg] scale-110 overflow-hidden border-y-4 border-blue-600 bg-white">
+      <div className="flex translate-y-[50%] rotate-[7deg] scale-110 overflow-hidden border-y-4 border-gray-100 bg-white">
         <TranslateWrapper>
           <LogoItems logos={logos} />
         </TranslateWrapper>
@@ -29,7 +29,7 @@ export function SocialProof() {
           <LogoItems logos={logos} />
         </TranslateWrapper>
       </div>
-      <div className="flex -translate-y-[50%] -rotate-[7deg] scale-110 overflow-hidden border-y-4 border-blue-600 bg-white">
+      <div className="flex -translate-y-[50%] -rotate-[7deg] scale-110 overflow-hidden border-y-4 border-gray-100 bg-white">
         <TranslateWrapper reverse>
           <LogoItems logos={logos} />
         </TranslateWrapper>
