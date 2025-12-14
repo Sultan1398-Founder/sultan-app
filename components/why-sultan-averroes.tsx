@@ -275,7 +275,7 @@ export function WhySultanAverroes() {
               index={index}
             />
           ))}
-          <VideoCard key="video-card" isRtl={isRtl} index={featuresWithMetadata.length} />
+          {/* <VideoCard key="video-card" isRtl={isRtl} index={featuresWithMetadata.length} /> */}
         </ul>
 
       </div>

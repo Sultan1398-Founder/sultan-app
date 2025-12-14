@@ -24,7 +24,7 @@
       "watchVideoButton": "Watch the introductory video: Board of Directors video (about 10 minutes)"
     },
     "SocialProof": {
-      "title": "Our strategic partners shaping the future of decision-making",
+      "title": "Partners",
       "logoAlt": "Partner logo {index}"
     },
     "LeadershipSection": {
@@ -64,8 +64,8 @@
       "description": "Sultan Averroes is an innovative AI platform that supports decision-making for ministries and large organizations through advanced analytics combining Averroes' rational methodology with modern Decision Intelligence technologies."
     },
     "ModulesSection": {
-      "title": "Core Modules",
-      "subtitle": "Six integrated modules forming a comprehensive AI system for large organizations",
+      "title": "Core System Components",
+      "subtitle": "Six core components forming the Sultan Averroes AI system",
       "tooltip": "AWS markets itself as the \"world's most comprehensive and broadly adopted cloud platform\" offering over 200 fully featured services globally.",
       "modules": [
         {
