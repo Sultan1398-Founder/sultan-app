@@ -353,7 +353,8 @@ export function ModulesSection() {
                         const isVisible = absOffset <= 2
                         
                         // Better positioning: cards spread horizontally with slight vertical offset
-                        const xOffset = offset * 40 // Increased horizontal spacing
+                        // In RTL, reverse the direction
+                        const xOffset = isRtl ? -offset * 40 : offset * 40 // Increased horizontal spacing
                         const yOffset = absOffset * 15 // Slight vertical offset for depth
                         
                         // Opacity: keep adjacent cards visible
@@ -434,20 +435,44 @@ export function ModulesSection() {
                 </div>
 
                 {/* Mobile Navigation Buttons */}
-                <div className="flex justify-center gap-4 mt-4">
+                <div className="flex justify-center gap-4 mt-4" dir={!isRtl ? "rtl" : "ltr"}>
                     <button
-                        onClick={() => setActiveModule((prev) => (prev - 1 + modulesWithMetadata.length) % modulesWithMetadata.length)}
+                        onClick={() => {
+                            if (isRtl) {
+                                setActiveModule((prev) => (prev + 1) % modulesWithMetadata.length)
+                            } else {
+                                setActiveModule((prev) => (prev - 1 + modulesWithMetadata.length) % modulesWithMetadata.length)
+                            }
+                        }}
                         className="p-4 rounded-full bg-gray-900/10 border-2 border-gray-900/20 hover:bg-gray-900/20 transition-colors"
                     >
-                        <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg 
+                            className="w-5 h-5 text-gray-900" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                            style={{ transform: !isRtl ? "scaleX(-1)" : "scaleX(-1)" }}
+                        >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                     <button
-                        onClick={() => setActiveModule((prev) => (prev + 1) % modulesWithMetadata.length)}
+                        onClick={() => {
+                            if (isRtl) {
+                                setActiveModule((prev) => (prev - 1 + modulesWithMetadata.length) % modulesWithMetadata.length)
+                            } else {
+                                setActiveModule((prev) => (prev + 1) % modulesWithMetadata.length)
+                            }
+                        }}
                         className="p-4 rounded-full bg-gray-900/10 border-2 border-gray-900/20 hover:bg-gray-900/20 transition-colors"
                     >
-                        <svg className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg 
+                            className="w-5 h-5 text-gray-900" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                            style={{ transform: !isRtl ? "scaleX(-1)" : "scaleX(-1)" }}
+                        >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>

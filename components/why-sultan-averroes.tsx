@@ -5,6 +5,9 @@ import { BookOpen, Building2, TrendingUp, Globe, ShieldCheck, Play } from "lucid
 import { useTranslations, useLocale } from "next-intl"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
 import { useState, useRef } from "react"
+import { SlideshowLightbox } from 'lightbox.js-react'
+import { Button } from "./ui/button"
+import { cn } from "@/lib/utils"
 
 const featureIcons = [BookOpen, Building2, TrendingUp, Globe, ShieldCheck]
 
@@ -149,6 +152,14 @@ const VideoCard = ({ isRtl, index }: VideoCardProps) => {
       setIsPlaying(!isPlaying)
     }
   }
+  const media = [
+    {
+      type: "htmlVideo",
+      videoSrc: "/vidoe.webm",
+      thumbnail: "/logo-sultan.png",
+      alt: "Poster for the Big Buck Bunny film, featuring the bunny character in a green field, along with a purple butterfly"
+    },
+  ]
 
   return (
     <motion.li
@@ -171,77 +182,30 @@ const VideoCard = ({ isRtl, index }: VideoCardProps) => {
           proximity={64}
           inactiveZone={0.01}
         />
-        <div className="relative flex h-full flex-col overflow-hidden rounded-xl bg-white/80 hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-2xl dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-          {/* Gradient Background Overlay */}
-          <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
-            style={{
-              background: "linear-gradient(135deg, #6366f108, transparent)",
-            }}
-          />
+        <SlideshowLightbox images={media} className="w-full h-full relative" lightboxIdentifier="lbox1" showThumbnails={false}>
 
-          <div className="relative flex flex-col h-full z-10">
-            {/* Header Section */}
+          <div className={cn('absolute bottom-0 flex gap-2 pointer-events-auto', isRtl ? ' left-0' : ' right-0')}>
 
+            <Button
+              variant="ghost"
+              size="icon"
 
-            {/* Video Section */}
-            <div className="relative flex-1 ">
-              <div className="relative w-full h-full min-h-[16rem] md:min-h-[20rem] rounded-xl overflow-hidden bg-gray-900">
-                {videoData.url ? (
-                  <>
-                    <video
-                      ref={videoRef}
-                      src={videoData.url}
-                      className="w-full h-full object-cover"
-                      loop
-                      playsInline
-                      onPlay={() => setIsPlaying(true)}
-                      onPause={() => setIsPlaying(false)}
-                    />
-                    {/* Play/Pause Overlay */}
-                    <div
-                      className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors cursor-pointer"
-                      onClick={handlePlayPause}
-                    >
-                      <motion.div
-                        className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/90 flex items-center justify-center shadow-2xl"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {isPlaying ? (
-                          <div className="flex items-center gap-1">
-                            <div className="w-2 h-8 bg-gray-900 rounded-sm" />
-                            <div className="w-2 h-8 bg-gray-900 rounded-sm" />
-                          </div>
-                        ) : (
-                          <Play className="w-10 h-10 md:w-12 md:h-12 text-gray-900 ml-1" fill="currentColor" />
-                        )}
-                      </motion.div>
-                    </div>
-                  </>
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-purple-500/20">
-                    <div className="text-center p-8">
-                      <Play className="w-16 h-16 md:w-20 md:h-20 text-gray-400 mx-auto mb-4" />
-                      <p className="text-gray-500 dark:text-gray-400" dir={isRtl ? "rtl" : "ltr"}>
-                        {isRtl ? "سيتم إضافة رابط الفيديو قريباً" : "Video URL will be added soon"}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
+              className="rounded-full bg-gray-900/80 hover:bg-gray-800/90 text-white border border-white/20 h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 pointer-events-auto"
+            >
+              <Play className="h-4 w-4 sm:h-5 sm:w-5" />
+            </Button>
+
           </div>
+          {media.map((item) => (
+            <img
+              src={item.thumbnail}
+              alt={item.alt}
+              className="w-full h-full object-contain relative z-50"
+              data-lightboxjs="lbox1"
+            />
+          ))}
 
-          {/* Corner Accent */}
-          <div
-            className="absolute top-0 rounded-full right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"
-            style={{
-              background: "radial-gradient(circle, #6366f1, transparent)",
-              transform: "translate(30%, -30%)",
-            }}
-          />
-        </div>
+        </SlideshowLightbox>
       </div>
     </motion.li>
   )
