@@ -210,6 +210,7 @@ export function DashboardPreview({ className }: DashboardPreviewProps) {
     new Map(items.filter(item => item.media.type === 'video').map(item => [item.id, { isPlaying: false, isMuted: true }]))
   )
   const [isAnyVideoPlaying, setIsAnyVideoPlaying] = React.useState(false)
+  const autoplayTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const scrollPrev = React.useCallback(() => {
     if (emblaApi) {
@@ -326,26 +327,57 @@ export function DashboardPreview({ className }: DashboardPreviewProps) {
     }
   }, [emblaApi, onSelect])
 
-  // Auto-play functionality - pauses when any video is playing
-  React.useEffect(() => {
-    if (!emblaApi) {
+  const clearAutoplayTimer = React.useCallback(() => {
+    if (autoplayTimerRef.current) {
+      clearTimeout(autoplayTimerRef.current)
+      autoplayTimerRef.current = null
+    }
+  }, [])
+
+  const restartAutoplayTimer = React.useCallback(() => {
+    if (!emblaApi || isAnyVideoPlaying) {
+      clearAutoplayTimer()
       return
     }
 
-    const autoplayInterval = setInterval(() => {
-      if (!isAnyVideoPlaying) {
-        if (emblaApi.canScrollNext()) {
-          emblaApi.scrollNext()
-        } else {
-          emblaApi.scrollTo(0)
-        }
+    clearAutoplayTimer()
+    autoplayTimerRef.current = setTimeout(() => {
+      if (!emblaApi || isAnyVideoPlaying) {
+        return
+      }
+      if (emblaApi.canScrollNext()) {
+        emblaApi.scrollNext()
+      } else {
+        emblaApi.scrollTo(0)
       }
     }, 5000)
+  }, [clearAutoplayTimer, emblaApi, isAnyVideoPlaying])
+
+  // Auto-play functionality - pauses when any video is playing and resets after user drag/drop
+  React.useEffect(() => {
+    restartAutoplayTimer()
+    return () => {
+      clearAutoplayTimer()
+    }
+  }, [restartAutoplayTimer, clearAutoplayTimer, selectedIndex, isAnyVideoPlaying])
+
+  React.useEffect(() => {
+    if (!emblaApi) return
+
+    const handleUserInteraction = () => {
+      restartAutoplayTimer()
+    }
+
+    emblaApi.on('pointerDown', handleUserInteraction)
+    emblaApi.on('select', handleUserInteraction)
+    emblaApi.on('reInit', handleUserInteraction)
 
     return () => {
-      clearInterval(autoplayInterval)
+      emblaApi.off('pointerDown', handleUserInteraction)
+      emblaApi.off('select', handleUserInteraction)
+      emblaApi.off('reInit', handleUserInteraction)
     }
-  }, [emblaApi, isAnyVideoPlaying])
+  }, [emblaApi, restartAutoplayTimer])
 
   const togglePlay = React.useCallback((itemId: string) => {
     const video = videoRefs.current.get(itemId)

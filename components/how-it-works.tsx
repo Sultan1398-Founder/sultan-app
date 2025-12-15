@@ -21,7 +21,7 @@ export function HowItWorks() {
     const stepIcons = [Database, Brain, LayoutDashboard];
 
     return (
-        <div className="py-20 lg:py-40 px-4">
+        <div className="py-20 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">

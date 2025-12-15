@@ -121,7 +121,7 @@ export function ModulesSection() {
             </div>
 
             {/* Header */}
-            <div className="relative z-10 text-center mb-12 md:mb-20">
+            <div className="relative z-10 text-center mb-4">
 
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -175,7 +175,7 @@ export function ModulesSection() {
                         <motion.circle
                             cx="50%"
                             cy="50%"
-                            r="200"
+                            r="180"
                             fill="none"
                             stroke={modulesWithMetadata[activeModule].color}
                             strokeWidth="2"
@@ -189,7 +189,7 @@ export function ModulesSection() {
 
                     {/* Center Hub */}
                     <motion.div
-                        className="absolute z-20 w-48 h-48 rounded-full flex items-center justify-center"
+                        className="absolute z-20 w-40 h-40 rounded-full flex items-center justify-center"
                         style={{
                             background: `radial-gradient(circle, ${modulesWithMetadata[activeModule].color}20 0%, transparent 70%)`,
                         }}
@@ -200,7 +200,7 @@ export function ModulesSection() {
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.8, opacity: 0 }}
-                            className="w-32 h-32 rounded-full border-[3px] flex items-center justify-center backdrop-blur-xl"
+                            className="w-28 h-28 rounded-full border-[3px] flex items-center justify-center backdrop-blur-xl"
                             style={{
                                 borderColor: modulesWithMetadata[activeModule].color,
                                 background: `linear-gradient(135deg, ${modulesWithMetadata[activeModule].color}10, transparent)`,
@@ -240,8 +240,8 @@ export function ModulesSection() {
                                 key={index}
                                 className="absolute cursor-pointer"
                                 style={{
-                                    left: `calc(45% + ${pos.x}px)`,
-                                    top: `calc(42% + ${pos.y}px)`,
+                                    left: `calc(46% + ${pos.x}px)`,
+                                    top: `calc(43% + ${pos.y}px)`,
                                     transform: "translate(-50%, -50%)",
                                     zIndex: isActive ? 30 : 10,
                                 }}
@@ -264,7 +264,7 @@ export function ModulesSection() {
                                     {/* Hexagon Shape */}
                                     <div
                                         className={`
-                    relative w-28 h-28 flex items-center justify-center
+                    relative w-24 h-24 flex items-center justify-center
                     transition-all duration-500
                   `}
                                     >
@@ -294,7 +294,7 @@ export function ModulesSection() {
 
                                         {/* Icon */}
                                         <Icon
-                                            className={`w-8 h-8 relative z-10 transition-colors duration-300`}
+                                            className={`w-7 h-7 relative z-10 transition-colors duration-300`}
                                             style={{ color: isActive ? module.color : "rgba(0, 0, 0, 0.4)" }}
                                         />
 
