@@ -10,8 +10,7 @@ import { useLocale } from 'next-intl'
 
 type CarouselItem = {
   id: string
-  title: string
-  description: string
+  content: React.ReactNode
   primaryButton?: {
     text: string
     href?: string
@@ -36,70 +35,138 @@ type DashboardPreviewProps = {
   className?: string
 }
 
-const defaultItems: CarouselItem[] = [
-  {
-    id: '1',
-    title: 'Next Generation Platform',
-    description: 'Experience the future of development with cutting-edge tools and seamless integration.',
-    primaryButton: {
-      text: 'Start Free Trial',
-      href: '#',
-    },
-    secondaryButton: {
-      text: 'View Demo',
-      href: '#',
-    },
-    media: {
-      type: 'video',
-      src: '/vidoe.webm',
-      alt: 'Platform Demo',
-    },
-  },
-  {
-    id: '2',
-    title: 'Gemini Robotics',
-    description: 'Powering an era of physical agents to transform how robots actively understand their environments.',
-    primaryButton: {
-      text: 'Try in Google AI Studio',
-      href: '#',
-    },
-    secondaryButton: {
-      text: 'Learn more',
-      href: '#',
-    },
-    media: {
-      type: 'video',
-      src: '/veo__veo-3__nyc.mp4',
-      // poster: '/unnamed.jpg',
-      alt: 'Gemini Robotics',
-    },
-  },
 
 
-  {
-    id: '3',
-    title: 'Next Generation Platform',
-    description: 'Experience the future of development with cutting-edge tools and seamless integration.',
-    primaryButton: {
-      text: 'Start Free Trial',
-      href: '#',
-    },
-    secondaryButton: {
-      text: 'View Demo',
-      href: '#',
-    },
-    media: {
-      type: "image",
-      src: '/unnamed.webp',
-      alt: 'Platform Demo',
-    },
-  },
-]
-
-export function DashboardPreview({ items = defaultItems, className }: DashboardPreviewProps) {
+export function DashboardPreview({ className }: DashboardPreviewProps) {
   const locale = useLocale()
   const isRtl = locale === 'ar'
-  
+  const items: CarouselItem[] = React.useMemo(
+    () => [
+      {
+        id: '1',
+        content: (
+          <div className={cn('text-white text-left', isRtl ? 'text-right' : 'text-left')}>
+            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6'> الجيل الجديد من أنظمة اتخاذ القرار للوزارات والجهات الكبرى</h2>
+            <p className='text-sm sm:text-base md:text-md text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-md'>ذكاء اصطناعي مستند إلى حكمة ابن رشد ورؤية معاصرة في بناء أنظمة ذكية لقيادة تعتمد على المنطق والتحليل العميق والبيانات.</p>
+            {/* <div className='flex flex-col sm:flex-row gap-3 sm:gap-4'>
+              <div className='flex flex-col sm:flex-row gap-3 sm:gap-4'>
+                <Button className="text-white hover:bg-white/10 w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-2.5" variant="outline">
+                  ابدأ التجربة / Demo
+                </Button>
+              </div>
+            </div> */}
+          </div>
+        ),
+        media: {
+          type: 'video',
+          src: '/vidoe.webm',
+          alt: 'Platform Demo',
+        },
+      },
+      {
+        id: '2',
+        content: (
+          <div className={cn('text-white text-left', isRtl ? 'text-right' : 'text-left')}>
+            <h2 className='text-xl sm:text-xl md:text-2xl lg:text-2xl font-bold mb-3 sm:mb-4 md:mb-6'>
+              نظام Sultan Averroes هو منصة ذكاء اصطناعي مبتكرة تدعم اتخاذ القرار للوزارات والشركات الكبرى والعالمية عبر محرك تحليل متقدم يجمع بين:
+            </h2>
+            <ul className='list-disc pr-4 sm:pr-6 space-y-3 sm:space-y-4 text-sm sm:text-base md:text-md text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-xl leading-relaxed'>
+              <li>منهج ابن رشد في التحليل والمنطق</li>
+              <li>تقنيات Decision Intelligence الحديثة</li>
+              <li>قرارات التنبؤ والتعلم العميق</li>
+              <li>فهم سياقي للبيانات والأنظمة Contextual Understanding</li>
+            </ul>
+            <p className='text-lg sm:text-xl md:text-2xl font-semibold text-white'>
+              النتيجة؟ قرارات أسرع، أدق، وأكثر وعياً بالمخاطر والفرص.
+            </p>
+          </div>
+        ),
+        media: {
+          type: 'image',
+          src: '/bg-slide-2.png',
+          alt: 'Platform Demo',
+        },
+      },
+      {
+        id: '3',
+        content: (
+          <div className={cn('text-white text-left', isRtl ? 'text-right' : 'text-left')}>
+            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold mb-4 sm:mb-5 md:mb-6'>
+              الخصائص المميزة؟ — Why Sultan Averroes
+            </h2>
+            <ol className='list-decimal list-inside space-y-3 sm:space-y-4 text-sm sm:text-base md:text-md text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-3xl leading-relaxed'>
+              <li>دمج الفلسفة بالحوسبة.</li>
+              <li>المنهج الرشدي (Rational Reasoning) داخل الذكاء الاصطناعي.</li>
+              <li>
+                ذكاء اصطناعي خاص بالمنظمات الكبيرة؛ موجه للوزارات، الهيئات، الشركات المدرجة، مراكز الأزمات.
+                محاكاة مستقبلية للتنبؤ بالقرارات وتوقع سيناريوهات سلبية/إيجابية قبل وقوعها.
+              </li>
+              <li>هوية سعودية عالمية.</li>
+              <li>
+                تصميم، رؤية، قيادة مبنية على شخصية سلطان وعلى ابن رشد. أعلى مستويات الحوكمة والأمن السيبراني
+                ومتوافق مع ISO و NCA ومتطلبات الجهات الحكومية.
+              </li>
+            </ol>
+            <p className='text-lg sm:text-xl md:text-2xl font-semibold text-white'>
+              جاهز لقرارات أدق وأكثر وعياً بالمخاطر والفرص.
+            </p>
+          </div>
+        ),
+        media: {
+          type: 'image',
+          src: '/bg-slide-3.png',
+          alt: 'Platform Demo',
+        },
+      },
+      // {
+      //   id: '2',
+      //   content: <div>
+      //     <h2>Gemini Robotics</h2>
+      //     <p>Powering an era of physical agents to transform how robots actively understand their environments.</p>
+      //     <Button>Try in Google AI Studio</Button>
+      //     <Button>Learn more</Button>
+      //   </div>,
+      //   primaryButton: {
+      //     text: 'Try in Google AI Studio',
+      //     href: '#',
+      //   },
+      //   secondaryButton: {
+      //     text: 'Learn more',
+      //     href: '#',
+      //   },
+      //   media: {
+      //     type: 'video',
+      //     src: '/veo__veo-3__nyc.mp4',
+      //     // poster: '/unnamed.jpg',
+      //     alt: 'Gemini Robotics',
+      //   },
+      // },
+
+      // {
+      //   id: '3',
+      //   content: <div>
+      //     <h2>Next Generation Platform</h2>
+      //     <p>Experience the future of development with cutting-edge tools and seamless integration.</p>
+      //     <Button>Start Free Trial</Button>
+      //     <Button>View Demo</Button>
+      //   </div>,
+      //   primaryButton: {
+      //     text: 'Start Free Trial',
+      //     href: '#',
+      //   },
+      //   secondaryButton: {
+      //     text: 'View Demo',
+      //     href: '#',
+      //   },
+      //   media: {
+      //     type: "image",
+      //     src: '/unnamed.webp',
+      //     alt: 'Platform Demo',
+      //   },
+      // },
+    ],
+    [isRtl],
+  )
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
@@ -143,11 +210,11 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
     setSelectedIndex(newIndex)
     setCanScrollPrev(emblaApi.canScrollPrev())
     setCanScrollNext(emblaApi.canScrollNext())
-    
+
     // Stop all videos except the one in the current slide (if it's a video)
     setVideoStates(prev => {
       const newStates = new Map(prev)
-      
+
       items.forEach((item, index) => {
         if (item.media.type === 'video') {
           const video = videoRefs.current.get(item.id)
@@ -168,10 +235,10 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
           }
         }
       })
-      
+
       return newStates
     })
-    
+
     // Update isAnyVideoPlaying based on current slide
     const currentItem = items[newIndex]
     if (currentItem?.media.type === 'video') {
@@ -252,7 +319,7 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
           emblaApi.scrollTo(0)
         }
       }
-    }, 5000) 
+    }, 5000)
 
     return () => {
       clearInterval(autoplayInterval)
@@ -295,7 +362,7 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
     })
   }, [])
 
-  
+
   return (
     <div className={cn('w-full mx-auto px-4 md:px-6 lg:px-0', className)}>
       <div className="relative">
@@ -304,7 +371,7 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
             {items.map((item, index) => (
               <div
                 key={item.id}
-                className={cn('min-w-0 shrink-0 grow-0 basis-full md:basis-[70%]', isRtl ? 'pr-4' : 'pl-4')}
+                className={cn('min-w-0 shrink-0 grow-0 basis-full md:basis-[50%]', isRtl ? 'pr-4' : 'pl-4')}
               >
                 <motion.div
                   initial={{ scale: 0.9 }}
@@ -314,12 +381,12 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
                   transition={{ duration: 0.3 }}
                   className="relative rounded-[16px] md:rounded-[32px] overflow-hidden bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-sm"
                 >
-                  <div className="absolute inset-0 z-20 bg-gray-900/40 pointer-events-none"></div>
+                  <div className="absolute inset-0 z-20 bg-gray-900/50 pointer-events-none"></div>
                   <div className="relative flex flex-col md:flex-row h-[400px] sm:h-[450px] md:h-[470px] lg:h-[500px]">
 
 
 
-                    <div className={cn('absolute top-4 sm:top-6 md:top-8 z-50 flex-1 flex flex-col', isRtl ? 'right-4 sm:right-6 md:right-14' : 'left-4 sm:left-6 md:left-14')}>
+                    <div className={cn('absolute top-4 sm:top-6 md:top-8 z-50 flex-1 flex flex-col', isRtl ? 'right-4 sm:right-6 md:right-12' : 'left-4 sm:left-6 md:left-12')}>
                       <motion.div
                         initial={{ x: isRtl ? 20 : -20 }}
                         animate={{
@@ -327,58 +394,10 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
                         }}
                         transition={{ duration: 0.3, delay: 0.1 }}
                       >
-                        <h2 className={cn('text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 md:mb-6', isRtl && 'text-right')}>
-                          {item.title}
-                        </h2>
-                        <p className={cn('text-sm sm:text-base md:text-lg text-white/90 mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-md', isRtl && 'text-right')}>
-                          {item.description}
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                          {item.primaryButton && (
-                            <Button
-                              variant="outline"
-                              className="bg-transparent border-white/20 text-white hover:bg-white/10 hover:border-white/40 w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-2.5"
-                              onClick={item.primaryButton.onClick}
-                              asChild={!!item.primaryButton.href}
-                            >
-                              {item.primaryButton.href ? (
-                                <a href={item.primaryButton.href}>
-                                  {item.primaryButton.text}
-                                </a>
-                              ) : (
-                                item.primaryButton.text
-                              )}
-                            </Button>
-                          )}
-                          {item.secondaryButton && (
-                            <Button
-                              variant="ghost"
-                              className="text-white hover:bg-white/10 w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-2.5"
-                              onClick={item.secondaryButton.onClick}
-                              asChild={!!item.secondaryButton.href}
-                            >
-                              {item.secondaryButton.href ? (
-                                <a href={item.secondaryButton.href} className="flex items-center gap-2">
-                                  {item.secondaryButton.text}
-                                  {isRtl ? (
-                                    <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-                                  ) : (
-                                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
-                                  )}
-                                </a>
-                              ) : (
-                                <span className="flex items-center gap-2">
-                                  {item.secondaryButton.text}
-                                  {isRtl ? (
-                                    <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-                                  ) : (
-                                    <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
-                                  )}
-                                </span>
-                              )}
-                            </Button>
-                          )}
+                        <div className=' max-w-[640px]'>
+                          {item.content}
                         </div>
+
                       </motion.div>
                     </div>
                     <div className=" absolute w-full h-full z-10 flex-1 flex items-center justify-center">
@@ -441,7 +460,7 @@ export function DashboardPreview({ items = defaultItems, className }: DashboardP
                         ) : (
                           <img
                             src={item.media.src}
-                            alt={item.media.alt || item.title}
+                            alt={item.media.alt}
                             className="w-full h-full object-cover rounded-xl"
                           />
                         )}
