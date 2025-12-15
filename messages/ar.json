@@ -24,7 +24,18 @@
       "slide4Point3": "المرحلة 3 — تقييم المخاطر والفرص",
       "slide4Point4": "المرحلة 4 — محاكاة 3 سيناريوهات",
       "slide4Point5": "المرحلة 5 — إعطاء القرار النهائي بحكمة ابن رشد وبرؤية معاصرة",
-      "slide4Summary": "منهجية تفكير منظّمة تضمن قرارات واعية ومدعومة بالتحليل."
+      "slide4Summary": "منهجية تفكير منظّمة تضمن قرارات واعية ومدعومة بالتحليل.",
+      "slide5Title": "كيف يعمل النظام — How It Works",
+      "slide5Subtitle": "ثلاث خطوات فقط:",
+      "slide5Step1Title": "1) جمع البيانات والمعرفة",
+      "slide5Step1Description": "ربط الأنظمة الداخلية والبيئة الخارجية، سحب التقارير، تحليلات، إعلام، مخاطر.",
+      "slide5Step2Title": "2) المحرك التحليلي — Averroes Decision Engine",
+      "slide5Step2Feature1": "محاكاة سيناريوهات",
+      "slide5Step2Feature2": "تحليل سبب–نتيجة",
+      "slide5Step2Feature3": "حساب أثر القرار",
+      "slide5Step2Feature4": "مؤشر الثقة Confidence Score",
+      "slide5Step3Title": "3) لوحة قيادة تنفيذية — Executive Decision Dashboard",
+      "slide5Step3Description": "توصية جاهزة + أفضل 3 بدائل + تحليل المخاطر + كلفة/عائد."
     },
     "LocaleSwitcher": {
       "en": "English",

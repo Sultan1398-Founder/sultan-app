@@ -24,7 +24,18 @@
       "slide4Point3": "Stage 3 — Assess risks and opportunities",
       "slide4Point4": "Stage 4 — Simulate 3 scenarios",
       "slide4Point5": "Stage 5 — Deliver the final decision with Ibn Rushd’s wisdom and a modern vision",
-      "slide4Summary": "A structured reasoning method that delivers well-informed, analysis-backed decisions."
+      "slide4Summary": "A structured reasoning method that delivers well-informed, analysis-backed decisions.",
+      "slide5Title": "How It Works",
+      "slide5Subtitle": "Only three steps:",
+      "slide5Step1Title": "1) Data and Knowledge Collection",
+      "slide5Step1Description": "Connect internal systems and the external environment; pull reports, analytics, media, and risk signals.",
+      "slide5Step2Title": "2) Analytical Engine — Averroes Decision Engine",
+      "slide5Step2Feature1": "Scenario simulation",
+      "slide5Step2Feature2": "Cause-effect analysis",
+      "slide5Step2Feature3": "Decision impact calculation",
+      "slide5Step2Feature4": "Confidence Score",
+      "slide5Step3Title": "3) Executive Decision Dashboard",
+      "slide5Step3Description": "Ready recommendation + top 3 alternatives + risk analysis + cost/return."
     },
     "LocaleSwitcher": {
       "en": "English",

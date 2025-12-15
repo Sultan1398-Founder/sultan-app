@@ -138,7 +138,43 @@ export function DashboardPreview({ className }: DashboardPreviewProps) {
           alt: 'Platform Demo',
         },
       },
-
+      {
+        id: '5',
+        content: (
+          <div className={cn('text-white text-left', isRtl ? 'text-right' : 'text-left')}>
+            <h2 className='text-xl sm:text-2xl md:text-3xl lg:text-3xl font-bold mb-4 sm:mb-5 md:mb-6'>
+              {t('slide5Title')}
+            </h2>
+            <p className='text-sm sm:text-base md:text-lg text-white/90 mb-3 sm:mb-4'>
+              {t('slide5Subtitle')}
+            </p>
+            <div className={cn('grid gap-4 sm:gap-5 md:gap-6 text-sm sm:text-base md:text-md text-white/90 mb-4 sm:mb-6 md:mb-8', 'md:grid-cols-2')}>
+              <div className='bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 h-full'>
+                <div className='font-semibold text-white mb-2'>{t('slide5Step1Title')}</div>
+                <p className='text-white/80 leading-relaxed'>{t('slide5Step1Description')}</p>
+              </div>
+              <div className='bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 h-full'>
+                <div className='font-semibold text-white mb-2'>{t('slide5Step2Title')}</div>
+                <ul className={cn('list-disc space-y-1 text-white/80 leading-relaxed', isRtl ? 'pr-4' : 'pl-4')}>
+                  <li>{t('slide5Step2Feature1')}</li>
+                  <li>{t('slide5Step2Feature2')}</li>
+                  <li>{t('slide5Step2Feature3')}</li>
+                  <li>{t('slide5Step2Feature4')}</li>
+                </ul>
+              </div>
+              <div className='bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 h-full md:col-span-2'>
+                <div className='font-semibold text-white mb-2'>{t('slide5Step3Title')}</div>
+                <p className='text-white/80 leading-relaxed'>{t('slide5Step3Description')}</p>
+              </div>
+            </div>
+          </div>
+        ),
+        media: {
+          type: 'image',
+          src: '/bg-slide-5.png',
+          alt: 'Platform Demo',
+        },
+      },
       // {
       //   id: '2',
       //   content: <div>
