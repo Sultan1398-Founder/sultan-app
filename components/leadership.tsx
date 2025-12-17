@@ -1,15 +1,38 @@
 "use client"
 
 import Image from "next/image"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
 export function LeadershipSection() {
     const t = useTranslations("LeadershipSection")
-    const leaders = t.raw("leaders") as Array<{ name: string; role: string, img: string }>
+    const isRtl = useLocale() === "ar"
     const containerRef = useRef(null)
     const isInView = useInView(containerRef, { once: true, amount: 0.2 })
+
+    const leaders=  [
+        {
+          "name": isRtl ?  "د. سلطان سعود السجان" : "Dr. Sultan Saud Al-Sajjan",
+          "img":"/sultan.jpg",
+          "role": isRtl ? "رئيس مجلس الإدارة والرئيس التنفيذي" : "Chairman of the Board and CEO"
+        },
+        {
+          "name": isRtl ?  "م. حسين أحمد كتاب" : "Eng. Hussein Ahmed Kattab",
+          "img":"/حسين.jpeg",
+          "role": isRtl ? "الرئيس التنفيذي للتكنولوجيا" : "Chief Technology Officer"
+        },
+        {
+          "name": isRtl ?  "م. أحمد حسين كتاب" : "Eng. Ahmed Hussein Kattab",
+          "img":"/sultan.jpg",
+          "role": isRtl ? "كبير المبرمجين" : "Chief Programmer"
+        },
+        {
+          "name": isRtl ?  "أ. عمار عبدالله الشعيبي" : "Mr. Ammar Abdullah Al-Shuaibi",
+          "img":"/ammar.jpg",
+          "role": isRtl ? "المستشار القانوني" : "Legal Advisor"
+        }
+      ]as Array<{ name: string; role: string, img: string }>
 
     return (
         <section className="relative w-full px-5 py-20 md:py-32  flex justify-center items-center ">

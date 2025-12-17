@@ -14,6 +14,7 @@ import { useState } from "react"
 
 export function Header() {
   const t = useTranslations("Header")
+  const tryLimitedEditionLink="https://sultan-averroes.ai/try-limited-edition"
 
   const navItems = [
     { name: t("navItems.home"), href: "#home" },
@@ -73,7 +74,7 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="hidden md:block">
+          <Link href={tryLimitedEditionLink} target="_blank" rel="noopener noreferrer" className="hidden md:block">
             <Button className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-full font-medium shadow-sm">
               {t("tryLimitedEdition")}
             </Button>
@@ -99,7 +100,7 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="w-full mt-4">
+                <Link href={tryLimitedEditionLink} target="_blank" rel="noopener noreferrer" className="w-full mt-4">
                   <Button className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-2 rounded-full font-medium shadow-sm">
                     {t("tryLimitedEdition")}
                   </Button>
