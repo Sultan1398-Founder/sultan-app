@@ -36,7 +36,7 @@ export default function LandingPage() {
           </AnimatedSection> */}
 
 
-          <AnimatedSection className="relative z-10" delay={0.1}>
+          <AnimatedSection className="relative z-10" id="partners" delay={0.1}>
             <SocialProof />
           </AnimatedSection>
 

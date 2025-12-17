@@ -20,6 +20,7 @@ export function Header() {
     { name: t("navItems.home"), href: "#home" },
     { name: t("navItems.features"), href: "#features" },
     { name: t("navItems.whySultan"), href: "#why-sultan" },
+    { name: t("navItems.partners"), href: "#partners" },
     { name: t("navItems.team"), href: "#team" },
     { name: t("navItems.contactUs"), href: "#contact" },
   ]
