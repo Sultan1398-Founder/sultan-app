@@ -17,12 +17,12 @@ export function Header() {
 
   const navItems = [
     { name: t("navItems.home"), href: "#home" },
-    { name: t("navItems.whySultan"), href: "#why-sultan" },
     { name: t("navItems.features"), href: "#features" },
+    { name: t("navItems.whySultan"), href: "#why-sultan" },
     { name: t("navItems.team"), href: "#team" },
     { name: t("navItems.contactUs"), href: "#contact" },
   ]
-  let [isOpen, setIsOpen] = useState(false); 
+  let [isOpen, setIsOpen] = useState(false);
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     if (href === "#why-sultan") {
@@ -38,7 +38,7 @@ export function Header() {
   const media = [
     {
       type: "yt",
-      videoID :"QjN4Xi_UYBU",
+      videoID: "QjN4Xi_UYBU",
       videoSrc: "https://www.youtube.com/watch?v=QjN4Xi_UYBU&feature=youtu.be",
       thumbnail: "/logo-sultan.png",
       alt: "Poster for the Big Buck Bunny film, featuring the bunny character in a green field, along with a purple butterfly"
@@ -46,12 +46,12 @@ export function Header() {
   ]
   return (
     <header className="w-full px-6">
-      <SlideshowLightbox 
-        images={media} 
-        showThumbnails={false} 
-        open={isOpen} 
+      <SlideshowLightbox
+        images={media}
+        showThumbnails={false}
+        open={isOpen}
         lightboxIdentifier="lbox1"
-        onClose={() =>{setIsOpen(false)}}>     
+        onClose={() => { setIsOpen(false) }}>
       </SlideshowLightbox>
 
       <div className="max-w-7xl mx-auto flex items-center justify-between">

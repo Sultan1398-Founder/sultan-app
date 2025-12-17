@@ -435,7 +435,7 @@ export function ModulesSection() {
                 </div>
 
                 {/* Mobile Navigation Buttons */}
-                <div className="flex justify-center gap-4 mt-4" dir={!isRtl ? "rtl" : "ltr"}>
+                <div className="flex justify-center gap-4 mt-4">
                     <button
                         onClick={() => {
                             if (isRtl) {
@@ -451,7 +451,7 @@ export function ModulesSection() {
                             fill="none" 
                             viewBox="0 0 24 24" 
                             stroke="currentColor"
-                            style={{ transform: !isRtl ? "scaleX(-1)" : "scaleX(-1)" }}
+                            style={{ transform: !isRtl ? "scaleX(-1)" : "scaleX(1)" }}
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -471,7 +471,7 @@ export function ModulesSection() {
                             fill="none" 
                             viewBox="0 0 24 24" 
                             stroke="currentColor"
-                            style={{ transform: !isRtl ? "scaleX(-1)" : "scaleX(-1)" }}
+                            style={{ transform: !isRtl ? "scaleX(-1)" : "scaleX(1)" }}
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
