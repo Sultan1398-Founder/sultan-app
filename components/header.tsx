@@ -14,7 +14,7 @@ import { useState } from "react"
 
 export function Header() {
   const t = useTranslations("Header")
-  const tryLimitedEditionLink="https://sultan-averroes.ai/try-limited-edition"
+  const tryLimitedEditionLink="https://averroes-git-main-kattab511s-projects.vercel.app/deep-insight"
 
   const navItems = [
     { name: t("navItems.home"), href: "#home" },
