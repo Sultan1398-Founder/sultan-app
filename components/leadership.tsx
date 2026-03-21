@@ -24,7 +24,7 @@ export function LeadershipSection() {
         },
         {
           "name": isRtl ?  "م. أحمد حسين كتاب" : "Eng. Ahmed Hussein Kattab",
-          "img":"/1000088406.png",
+          "img":"ahmed.jpeg",
           "role": isRtl ? "كبير المبرمجين" : "Chief Programmer"
         },
         {
